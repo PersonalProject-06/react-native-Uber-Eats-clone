@@ -4,7 +4,11 @@ import { View, Text } from 'react-native'
 export default function HeaderTbas() {
     return (
         <View>
-            <Text>Header tabs</Text>
+            <HeaderButton/>
         </View>
     )
+}
+
+const HeaderButton =()=>{
+    return <Text>Delivery</Text>
 }
