@@ -1,30 +1,15 @@
-import React from "react";
-import { View, Text } from "react-native";
-import { TouchableOpacity } from "react-native";
+import React ,{useState} from "react";
+import { View } from "react-native";
 
+import {HeaderButton} from "./HeaderButton"
 export default function HeaderTbas() {
+    const [activeTab , setActiveTab]=useState("Delivery")
   return (
     <View style={{ flexDirection: "row", alignSelf: "center" }}>
-      <HeaderButton text="Delivery" btnColor="black"  textColor="white"/>
-      <HeaderButton text="Delivery" btnColor="white"  textColor="black"/>
+      <HeaderButton text="Delivery"  activeTab={activeTab} setActiveTab={setActiveTab} />
+      <HeaderButton text="Pickup"  activeTab={activeTab} setActiveTab={setActiveTab}/>
       
     </View>
   );
 }
 
-const HeaderButton = (props) => {
-    return (
-      <TouchableOpacity
-        style={{
-          backgroundColor: props.btnColor,
-          paddingVertical: 6,
-          paddingHorizontal: 16,
-          borderRadius: 30,
-        }}
-      >
-        <Text style={{ color: props.textColor, fontSize: 15, fontWeight: "900" }}>
-          {props.text}
-        </Text>
-      </TouchableOpacity>
-    );
-  };
