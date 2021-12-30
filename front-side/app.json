@@ -1,12 +1,12 @@
 {
   "expo": {
-    "name": "front-side",
-    "slug": "front-side",
+    "name": "UberEats",
+    "slug": "UberEats",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/images/bg3.jpg",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/images/coffee.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,12 +21,12 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/images/desserts.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/images/bg1.jpg"
     }
   }
 }
