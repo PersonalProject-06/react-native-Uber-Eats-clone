@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Categories from "../Components/Categories";
 import HeaderTabs from "../Components/HeaderTabs";
 import SearchBar from "../Components/SearchBar";
+import RestaurantItem from '../Components/RestaurantItem';
 
 export default function Home() {
   return (
