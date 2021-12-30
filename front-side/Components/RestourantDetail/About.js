@@ -13,6 +13,7 @@ export default function About() {
         <View>
             <RestaurantImage  imageUrl={detail.image_url} />
             <RestaurantTitle text={ detail.title}/>
+            <RestaurantDescription description={detail.description}/>
         </View>
     )
 }
@@ -37,3 +38,11 @@ const RestaurantTitle = (props)=>(
     }}> {props.text}</Text>
 
 )
+
+const RestaurantDescription =(props)=><Text style={{
+    marginTop:10,
+    marginHorizontal:15,
+    fontSize:15.5,
+    fontWeight:"400"
+
+}}>{props.description}</Text>
