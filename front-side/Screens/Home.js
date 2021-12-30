@@ -8,7 +8,7 @@ import RestaurantItem ,{localRestourant} from '../Components/Home/RestaurantItem
 import { Divider } from "react-native-elements";
 import BottomTabs from "../Components/Home/BottomTabs";
 const YELP_API_KEY =
-  "bdRJutLhFAQJ36t7b89CWjHFBU4OKzjt9wvZzcY-nkgmvTqlNMjZWV1eG7iBQ9R74SyfxRg9LWnBAkZY06BtAZAe4d2dfX-2vuX8a1l5V7foctHfX9UKEyoM5ts3YXYx";
+  "OcKQnbEPwZb6ZgfVt7nf5CNvDaBntH_9_MUw5ooAD1xoucfN_toEYMs1cAGwN1_g2CdSBbXhefY4aFdC6EzeOZE9JJ3s20ZIRxlNJuWXWY2G5tNHyJmCty6M_SvOYXYx";
 export default function Home() {
   const [restaurantData,setRestaurantData]=useState(localRestourant)
   const [city, setCity] = useState("San Francisco");
@@ -24,13 +24,14 @@ export default function Home() {
 
     return fetch(yelpUrl, apiOptions)
       .then((res) => res.json())
-      .then((json) =>
+      .then((json) =>{
         setRestaurantData(
               json.businesses.filter((business) =>
             business.transactions.includes(activeTab.toLowerCase())
           )
         )
-      );
+        console.log(json);
+     } );
   };
 
   useEffect(() => {
