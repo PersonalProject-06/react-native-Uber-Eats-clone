@@ -1,6 +1,7 @@
 import { FontAwesome5 } from "@expo/vector-icons";
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text ,TouchableOpacity} from "react-native";
+
 const IconsName = [
   {
     icon: "home",
@@ -42,15 +43,18 @@ export default function BottomTabs() {
 }
 
 const Icon = ({ icon, text }) => (
+    <TouchableOpacity>
+        
   <View>
     <FontAwesome5
       name={icon}
       size={24}
       style={{
-        marginBottom: 3,
-        alignSelf: "center",
-      }}
-    />
+          marginBottom: 3,
+          alignSelf: "center",
+        }}
+        />
     <Text>{text}</Text>
   </View>
+        </TouchableOpacity>
 );
