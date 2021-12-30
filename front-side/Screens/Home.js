@@ -6,6 +6,7 @@ import HeaderTabs from "../Components/HeaderTabs/HeaderTabs";
 import SearchBar from "../Components/SearchBar";
 import RestaurantItem ,{localRestourant} from '../Components/RestaurantItems/RestaurantItem';
 import { Divider } from "react-native-elements";
+import BottomTabs from "../Components/BottomTabs";
 const YELP_API_KEY =
   "bdRJutLhFAQJ36t7b89CWjHFBU4OKzjt9wvZzcY-nkgmvTqlNMjZWV1eG7iBQ9R74SyfxRg9LWnBAkZY06BtAZAe4d2dfX-2vuX8a1l5V7foctHfX9UKEyoM5ts3YXYx";
 export default function Home() {
@@ -48,6 +49,7 @@ export default function Home() {
         
       </ScrollView>
       <Divider width={1}/>
+      <BottomTabs  />
     </SafeAreaView>
   );
 }

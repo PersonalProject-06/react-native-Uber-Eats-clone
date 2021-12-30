@@ -3,8 +3,17 @@ import { View, Text } from 'react-native'
 
 export default function BottomTabs() {
     return (
-        <View>
-            <Text>bottm</Text>
+        <View style={{
+            flexDirection:"row",
+            margin:10,
+            justifyContent:"space-between",
+            marginHorizontal:30
+
+        }}>
+           
+            <Text>bottom</Text>
+            <Text>bottom</Text>
+            <Text>bottom</Text>
         </View>
     )
 }
