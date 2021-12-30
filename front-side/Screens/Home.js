@@ -24,14 +24,14 @@ export default function Home() {
 
     return fetch(yelpUrl, apiOptions)
       .then((res) => res.json())
-      .then((json) =>{
+      .then((json) =>
         setRestaurantData(
               json.businesses.filter((business) =>
-            business.transactions.includes(activeTab.toLowerCase())
+             business.transactions.includes(activeTab.toLowerCase())
           )
         )
-        console.log(json);
-     } );
+     
+     );
   };
 
   useEffect(() => {
