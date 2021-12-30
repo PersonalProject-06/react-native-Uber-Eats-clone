@@ -4,7 +4,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import RestaurantInfo from './RestaurantInfo';
 import RestaurantImage from './RestaurantImage';
 
-    const localRestourant = [
+export const localRestourant = [
                 {
                     name:"Beachside Bar",
                     image_url:"https://lvdneng.rosselcdn.net/sites/default/files/dpistyles_v2/ena_16_9_extra_big/2021/03/16/node_960937/50789063/public/2021/03/16/B9726446397Z.1_20210316175915_000%2BGQEHPMNAF.1-0.jpg?itok=cxs1pOQS1615914194",
@@ -33,10 +33,10 @@ import RestaurantImage from './RestaurantImage';
     ]
 
 
-export default function RestaurantItem() {
+export default function RestaurantItem(props) {
   return (
     <TouchableOpacity activeOpacity={1} style={{marginBottom:30}}>
-        {localRestourant.map((e,i)=>(
+        {props.restaurantData.map((e,i)=>(
 
 
       <View
