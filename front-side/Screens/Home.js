@@ -1,12 +1,12 @@
 import React ,{useState,useEffect}from "react";
 import { View, Text, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import Categories from "../Components/Categories";
-import HeaderTabs from "../Components/HeaderTabs/HeaderTabs";
-import SearchBar from "../Components/SearchBar";
-import RestaurantItem ,{localRestourant} from '../Components/RestaurantItems/RestaurantItem';
+import Categories from "../Components/Home/Categories";
+import HeaderTabs from "../Components/Home/HeaderTabs/HeaderTabs";
+import SearchBar from "../Components/Home/SearchBar";
+import RestaurantItem ,{localRestourant} from '../Components/Home/RestaurantItems/RestaurantItem';
 import { Divider } from "react-native-elements";
-import BottomTabs from "../Components/BottomTabs";
+import BottomTabs from "../Components/Home/BottomTabs";
 const YELP_API_KEY =
   "bdRJutLhFAQJ36t7b89CWjHFBU4OKzjt9wvZzcY-nkgmvTqlNMjZWV1eG7iBQ9R74SyfxRg9LWnBAkZY06BtAZAe4d2dfX-2vuX8a1l5V7foctHfX9UKEyoM5ts3YXYx";
 export default function Home() {
@@ -26,7 +26,7 @@ export default function Home() {
       .then((res) => res.json())
       .then((json) =>
         setRestaurantData(
-          json.businesses.filter((business) =>
+              json.businesses.filter((business) =>
             business.transactions.includes(activeTab.toLowerCase())
           )
         )
