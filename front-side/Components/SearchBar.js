@@ -5,8 +5,8 @@ import { AntDesign, Ionicons } from "@expo/vector-icons";
 export default function SearchBar() {
   return (
     <View style={{ marginTop: 15, flexDirection: "row" }}>
-      <GooglePlacesAutocomplete
-     query={{ key: "AIzaSyATiAqIXBARofRD2apZcPQ1eEWZPH4fPV4" }}
+      <GooglePlacesAutocomplete query={{ key: "AIzaSyATiAqIXBARofRD2apZcPQ1eEWZPH4fPV4" }}
+  
         placeholder="Search"
         onPress={(data,detail=null)=>{
           console.log(data.description);
