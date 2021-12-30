@@ -47,8 +47,8 @@ export default function RestaurantItem() {
           backgroundColor: "white",
         }}
       >
-        <RestaurantImage />
-        <RestaurantInfo />
+        <RestaurantImage  image ={e.image_url} />
+        <RestaurantInfo name={e.name} rating={e.rating} />
       </View>
         ))}
     </TouchableOpacity>

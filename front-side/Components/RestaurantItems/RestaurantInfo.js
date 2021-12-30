@@ -1,7 +1,7 @@
 import React from "react";
 import { View, Text } from "react-native";
 
-export default function RestaurantInfo() {
+export default function RestaurantInfo(props) {
   return (
     <View
       style={{
@@ -18,7 +18,7 @@ export default function RestaurantInfo() {
             fontWeight: "bold",
           }}
         >
-          Farhouse kitchen Thai Cuisine
+         {props.name}
         </Text>
         <Text
           style={{
@@ -39,7 +39,7 @@ export default function RestaurantInfo() {
           borderRadius: 15,
         }}
       >
-        <Text>4.5</Text>
+        <Text>{props.rating}</Text>
       </View>
     </View>
   );
