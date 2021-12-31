@@ -1,13 +1,13 @@
 import React from "react";
-import { View, Text, Image ,TouchableOpacity } from "react-native";
+import {Image, TouchableOpacity } from "react-native";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-export default function RestaurantImage(props) {
+export default function RestaurantImage({image}) {
   return (
     <>
       <Image
         style={{ width: "100%", height: 180 }}
         source={{
-          uri: props.image,
+          uri: image,
         }}
       />
       <TouchableOpacity
