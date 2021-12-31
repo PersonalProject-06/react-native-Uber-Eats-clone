@@ -4,13 +4,13 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Categories from "../Components/Home/Categories";
 import HeaderTabs from "../Components/Home/HeaderTabs/HeaderTabs";
 import SearchBar from "../Components/Home/SearchBar";
-import RestaurantItem from "../Components/Home/RestaurantItems/RestaurantItem";
+import RestaurantItem from "../Components/Home/RestaurantItem";
 import { Divider } from "react-native-elements";
 import BottomTabs from "../Components/Home/BottomTabs";
 import { getRestaurantsFromYelp } from "./Api/FetchData";
 import { localRestourant } from '../Components/Home/RestaurantItems/FakeData/RestaurantItemsFakeData';
 
-export default function Home() {
+export default function Home({navigation}) {
 
   const [restaurantData, setRestaurantData] = useState(localRestourant);
   const [city, setCity] = useState("San Francisco");
@@ -28,7 +28,7 @@ export default function Home() {
       </View>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Categories />
-        <RestaurantItem restaurantData={restaurantData} />
+        <RestaurantItem restaurantData={restaurantData}  navigation={navigation}/>
       </ScrollView>
       <Divider width={1} />
       <BottomTabs />

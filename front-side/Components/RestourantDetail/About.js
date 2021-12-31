@@ -1,22 +1,24 @@
 import React from "react";
 import { View, Text } from "react-native";
 import { Image } from "react-native";
-const detail = {
-  image_url:
-    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7dOpgQrbqVA0Iyxnj-8_hDkTfFh0QauuqfA&usqp=CAU",
 
-  title: "FarmHouse Kitchen Thai Cuisine",
-  description: "Thai • comfort Food • $$ • 🎫 • 4 ⭐ (2913+)  ",
-};
-export default function About() {
+
+
+export default function About({route}) {
+    const {params}=route
+    const { name , image , price ,reviews ,rating ,categories}=params
+    const  FormatedCategories =categories.map((e)=>e.title).join(" • ")     
+    const description = `${FormatedCategories} ${  price ? " • " + price : "" } • 🎫 • ${rating} ⭐ (${reviews}+)`;
+   
   return (
     <View>
-      <RestaurantImage imageUrl={detail.image_url} />
-      <RestaurantTitle text={detail.title} />
-      <RestaurantDescription description={detail.description} />
+      <RestaurantImage imageUrl={image} />
+      <RestaurantTitle text={name} />
+      <RestaurantDescription description={description} />
     </View>
-  );
+  ); 
 }
+
 
 const RestaurantImage = ({imageUrl}) => (
   <Image

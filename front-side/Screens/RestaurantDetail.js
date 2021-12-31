@@ -2,11 +2,12 @@ import React from "react";
 import { Divider } from "react-native-elements/dist/divider/Divider";
 import About from "../Components/RestourantDetail/About";
 import MenuItems from "../Components/RestourantDetail/MenuItems";
+import ViewCart from "../Components/RestourantDetail/ViewCart";
 
-export default function RestaurantDetail() {
+export default function RestaurantDetail({route ,navigation}) {
   return (
     <>
-      <About />
+      <About route={route} />
       <Divider
         width={1.8}
         style={{
@@ -14,7 +15,8 @@ export default function RestaurantDetail() {
         }}
       />
 
-      <MenuItems />
+      <MenuItems  restaurantName={route.params.name}/>
+      <ViewCart navigation={navigation} restaurantName={route.params.name}/>
     </>
   );
 }
