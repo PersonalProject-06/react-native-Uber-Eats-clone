@@ -14,7 +14,7 @@ let cartReducer = (state = defaultState, action) => {
           restaurantName: action.payload.restaurantName,
         };
       } else {
-        console.log("remove");
+        
         newState.selectedItems = {
           items: [
             ...newState.selectedItems.items.filter(

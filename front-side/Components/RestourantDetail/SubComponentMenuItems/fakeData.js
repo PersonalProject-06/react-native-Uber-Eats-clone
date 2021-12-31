@@ -23,14 +23,14 @@ export const foods = [
   },
 
   {
-    title: "Chilaquiles",
+    title: "Chilaqules",
     description: "Chilaquiles with cheese and sauce. A delicious mexican ",
     price: "$14.50",
     image:
       "https://www.ladybehindthecurtain.com/wp-content/uploads/2019/10/Chilaquiles-Lady-Behind-The-Curtain-1.png",
   },
   {
-    title: "Chilaquiles",
+    title: "Chilaquils",
     description: "Chilaquiles with cheese and sauce. A delicious mexican ",
     price: "$14.50",
     image:
