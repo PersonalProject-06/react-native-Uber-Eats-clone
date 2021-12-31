@@ -1,5 +1,12 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
+
+const styles = StyleSheet.create({
+  titleStyle: {
+    fontSize: 19,
+    fontWeight: "600",
+  },
+});
 
 export default function FoodInfo({ food }) {
   return (
