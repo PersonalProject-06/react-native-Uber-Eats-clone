@@ -7,6 +7,10 @@ export default function ViewCart() {
   const total = items
     .map((item) => Number(item.price.replace("$", "")))
     .reduce((prev, curr) => prev + curr, 0);
+    const TotalUsd = total.tolocaleString("en",{
+        style:"currency",
+        currency:"USD"
+    })
   return (
     <View
       style={{
@@ -37,7 +41,7 @@ export default function ViewCart() {
             position: "relative",
           }}
         >
-          <Text style={{ color: "white", fontSize: 20 }}>View Cart ${total}</Text>
+          <Text style={{ color: "white", fontSize: 20 }}>View Cart {total}</Text>
 
         </TouchableOpacity>
       </View>
