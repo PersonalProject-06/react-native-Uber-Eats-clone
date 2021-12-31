@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux'
 
 export default function ViewCart() {
     const items = useSelector((state)=>state.cartReducer.selectedItems.items)
-    const total = items .map((item)=>Number(item.price.replace("$","")))
+    const total = items .map((item)=>Number(item.price.replace("$",""))).reduce((prev,curr)=>prev+curr,0)
     return (
         <View style={{
             flex:1,
