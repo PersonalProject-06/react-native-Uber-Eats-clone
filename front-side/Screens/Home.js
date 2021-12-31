@@ -4,7 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Categories from "../Components/Home/Categories";
 import HeaderTabs from "../Components/Home/HeaderTabs/HeaderTabs";
 import SearchBar from "../Components/Home/SearchBar";
-import RestaurantItem from "../Components/Home/RestaurantItems/RestaurantItem";
+import RestaurantItem from "../Components/Home/RestaurantItem";
 import { Divider } from "react-native-elements";
 import BottomTabs from "../Components/Home/BottomTabs";
 import { getRestaurantsFromYelp } from "./Api/FetchData";

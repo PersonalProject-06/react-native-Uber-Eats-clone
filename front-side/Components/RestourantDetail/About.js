@@ -19,6 +19,7 @@ export default function About({route}) {
   ); 
 }
 
+
 const RestaurantImage = ({imageUrl}) => (
   <Image
     source={{ uri:imageUrl }}

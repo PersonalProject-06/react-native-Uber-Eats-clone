@@ -1,13 +1,14 @@
 import React from "react";
 import { View, TouchableOpacity } from "react-native";
-import RestaurantInfo from "./RestaurantInfo";
-import RestaurantImage from "./RestaurantImage";
+import RestaurantInfo from "./RestaurantItems/RestaurantInfo";
+import RestaurantImage from "./RestaurantItems/RestaurantImage";
 
 export default function RestaurantItem({ navigation, restaurantData }) {
   return (
     <>
       {restaurantData.map((e, i) => (
         <TouchableOpacity
+        key={i}
           activeOpacity={1}
           style={{ marginBottom: 30 }}
           onPress={() =>
@@ -22,7 +23,6 @@ export default function RestaurantItem({ navigation, restaurantData }) {
           }
         >
           <View
-            key={i}
             style={{
               marginTop: 10,
               padding: 15,
