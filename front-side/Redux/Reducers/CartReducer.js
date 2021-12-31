@@ -7,10 +7,24 @@ let cartReducer = (state = defaultState, action) => {
     case "ADD_TO_CART": {
       let newState = { ...state };
 
-      newState.selectedItems = {
-        items: [...newState.selectedItems.items, action.payload],
-        restaurantName: action.payload.restaurantName,
-      };
+      if (action.payload.checkBoxValue) {
+        console.log("add");
+        newState.selectedItems = {
+          items: [...newState.selectedItems.items, action.payload],
+          restaurantName: action.payload.restaurantName,
+        };
+      } else {
+        console.log("remove");
+        newState.selectedItems = {
+          items: [
+            ...newState.selectedItems.items.filter(
+              (item) => item.title !== action.payload.title
+            ),
+          ],
+          restaurantName: action.payload.restaurantName,
+        };
+      }
+
       console.log(newState);
       return newState;
     }
