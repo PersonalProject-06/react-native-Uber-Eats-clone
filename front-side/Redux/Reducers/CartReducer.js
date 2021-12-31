@@ -1,23 +1,22 @@
-let DefaultState = {
+let defaultState = {
   selectedItems: { items: [], restaurantName: "" },
 };
 
-let cartReducer = (state = DefaultState, action) => {
+let cartReducer = (state = defaultState, action) => {
   switch (action.type) {
-    case "ADD_TO_CARD": {
+    case "ADD_TO_CART": {
       let newState = { ...state };
+
       newState.selectedItems = {
         items: [...newState.selectedItems.items, action.payload],
         restaurantName: action.payload.restaurantName,
       };
       console.log(newState);
-      return newState
+      return newState;
     }
-    default :
-    return state
+    default:
+      return state;
   }
-
 };
 
-
-export default cartReducer
+export default cartReducer;

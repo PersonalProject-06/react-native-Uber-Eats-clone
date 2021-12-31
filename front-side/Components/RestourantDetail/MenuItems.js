@@ -5,13 +5,13 @@ import FoodInfo from "./SubComponentMenuItems/FoodInfo";
 import FoodImage from "./SubComponentMenuItems/FoodImage";
 import { foods } from "./SubComponentMenuItems/fakeData";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-import { useDispatch } from "react-redux"
+import { useDispatch } from "react-redux";
+import { addToCard } from "../../Redux/Actions/cartAction";
 const styles = StyleSheet.create({
   menuItemStyle: {
     flexDirection: "row",
     justifyContent: "space-between",
-    margin:8,    
-   
+    margin: 8,
   },
 
   titleStyle: {
@@ -23,15 +23,21 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function MenuItems() {
+export default function MenuItems({ restaurantName }) {
+  let dispatch = useDispatch();
+
+  const selectItem = (item) => dispatch(addToCard(item, restaurantName));
+
   return (
     <ScrollView showsVerticalScrollIndicator={false}>
       {foods.map((food, index) => (
         <View key={index}>
           <View style={styles.menuItemStyle}>
-              <BouncyCheckbox iconStyle={{borderRadius:0,borderColor:"grey"}}
-                fillColor="green"
-              />
+            <BouncyCheckbox
+              iconStyle={{ borderRadius: 0, borderColor: "grey" }}
+              fillColor="green"
+              onPress={() => selectItem(food)}
+            />
             <FoodInfo food={food} />
             <FoodImage food={food} marginLeft={0} />
           </View>

@@ -15,7 +15,7 @@ export default function RestaurantDetail({route ,navigation}) {
         }}
       />
 
-      <MenuItems />
+      <MenuItems  restaurantName={route.params.name}/>
       <ViewCart navigation={navigation} restaurantName={route.params.name}/>
     </>
   );
