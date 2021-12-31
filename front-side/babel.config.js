@@ -1,15 +1,20 @@
-module.exports = {
-  presets: ["module:metro-react-native-babel-preset", "babel-preset-expo"],
-  env: {
-    production: {},
-  },
-  plugins: [
-    [
-      "@babel/plugin-proposal-decorators",
-      {
-        legacy: true,
-      },
+
+
+module.exports = function(api) {
+  api.cache(true);
+  return {
+    presets: ["module:metro-react-native-babel-preset",
+     'babel-preset-expo'
     ],
-    ["@babel/plugin-proposal-optional-catch-binding"],
-  ],
-}
+    plugins: [
+      ["module:react-native-dotenv", {
+        "moduleName": "@env",
+        "path": ".env",
+        "blacklist": null,
+        "whitelist": null,
+        "safe": false,
+        "allowUndefined": false
+    }]
+   ]
+  };
+  };

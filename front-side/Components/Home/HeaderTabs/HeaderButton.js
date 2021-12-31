@@ -1,25 +1,25 @@
 import React from "react";
 import { Text } from "react-native";
 import { TouchableOpacity } from "react-native";
-export const HeaderButton = (props) => {
+export const HeaderButton = ({ text, activeTab, setActiveTab }) => {
   return (
     <TouchableOpacity
       style={{
-        backgroundColor: props.activeTab === props.text ? "black" : "white",
+        backgroundColor: activeTab === text ? "black" : "white",
         paddingVertical: 6,
         paddingHorizontal: 16,
         borderRadius: 30,
       }}
-      onPress={() => props.setActiveTab(props.text)}
+      onPress={() => setActiveTab(text)}
     >
       <Text
         style={{
-          color: props.activeTab === props.text ? "white" : "black",
+          color: activeTab === text ? "white" : "black",
           fontSize: 15,
           fontWeight: "900",
         }}
       >
-        {props.text}
+        {text}
       </Text>
     </TouchableOpacity>
   );
