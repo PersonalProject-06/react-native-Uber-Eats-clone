@@ -4,8 +4,8 @@ import { useSelector } from 'react-redux'
 
 
 export default function ViewCart() {
-    const items = useSelector((state)=>state.cartReducer.selectedItems)
-    console.log(items);
+    const items = useSelector((state)=>state.cartReducer.selectedItems.items)
+    const total = items .map((item)=>Number(item.price.replace("$","")))
     return (
         <View style={{
             flex:1,
