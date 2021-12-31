@@ -7,44 +7,51 @@ export default function ViewCart() {
   const total = items
     .map((item) => Number(item.price.replace("$", "")))
     .reduce((prev, curr) => prev + curr, 0);
-    const TotalUsd = total.tolocaleString("en",{
-        style:"currency",
-        currency:"USD"
-    })
+  const totalUSD = total.toLocaleString("en", {
+    style: "currency",
+    currency: "USD",
+  });
   return (
-    <View
-      style={{
-        flex: 1,
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "row",
-        position: "absolute",
-        bottom: 10,
-        zIndex: 999,
-      }}
-    >
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "center",
-          width: "100%",
-        }}
-      >
-        <TouchableOpacity
+    <>
+      {total ? (
+        <View
           style={{
-            marginTop: 20,
-            backgroundColor: "black",
+            flex: 1,
             alignItems: "center",
-            padding: 13,
-            borderRadius: 30,
-            width: 300,
-            position: "relative",
+            justifyContent: "center",
+            flexDirection: "row",
+            position: "absolute",
+            bottom: 10,
+            zIndex: 999,
           }}
         >
-          <Text style={{ color: "white", fontSize: 20 }}>View Cart {total}</Text>
-
-        </TouchableOpacity>
-      </View>
-    </View>
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          >
+            <TouchableOpacity
+              style={{
+                marginTop: 20,
+                backgroundColor: "black",
+                alignItems: "center",
+                padding: 13,
+                borderRadius: 30,
+                width: 300,
+                position: "relative",
+              }}
+            >
+              <Text style={{ color: "white", fontSize: 20 }}>
+                View Cart {totalUSD}
+              </Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      ) : (
+        <></>
+      )}
+    </>
   );
 }
