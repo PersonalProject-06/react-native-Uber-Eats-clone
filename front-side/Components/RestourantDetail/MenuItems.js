@@ -5,7 +5,7 @@ import FoodInfo from "./SubComponentMenuItems/FoodInfo";
 import FoodImage from "./SubComponentMenuItems/FoodImage";
 import { foods } from "./SubComponentMenuItems/fakeData";
 import BouncyCheckbox from "react-native-bouncy-checkbox";
-
+import { useDispatch } from "react-redux"
 const styles = StyleSheet.create({
   menuItemStyle: {
     flexDirection: "row",
