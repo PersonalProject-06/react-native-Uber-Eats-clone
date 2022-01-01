@@ -1,10 +1,9 @@
-import React,{useState} from "react";
-import { View, Text, TouchableOpacity,Model } from "react-native";
+import React, { useState } from "react";
+import { View, Text, TouchableOpacity, Modal, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
 
 export default function ViewCart() {
-   
-  const [modalVisible, setModalVisible] = useState(false)
+  const [modalVisible, setModalVisible] = useState(false);
   const { items, restaurantName } = useSelector(
     (state) => state.cartReducer.selectedItems
   );
@@ -14,43 +13,70 @@ export default function ViewCart() {
     .reduce((prev, curr) => prev + curr, 0);
 
   const parseCurr = (total) =>
-   Platform.OS === 'android'  
-      ?  '$' + total.toFixed(2)  
-      :  total.toLocaleString('en-US', { style: 'currency', currency:'USD' });
-      const checkOutModelContent=()=>{
-          return (
-              <Text>ChecOut</Text>
-          )
-      }
+    Platform.OS === "android"
+      ? "$" + total.toFixed(2)
+      : total.toLocaleString("en-US", { style: "currency", currency: "USD" });
+
+  const checkoutModalContent = () => {
+    return (
+      <>
+        <View
+          style={{
+            flex: 1,
+            justifyContent: "center",
+            alignItems: "center",
+            marginTop: 30,
+          }}
+        >
+          <View
+            style={{
+              backgroundColor: "black",
+              padding: 10,
+              borderRadius: 30,
+              width: 150,
+              alignItems: "center",
+            }}
+          >
+            <TouchableOpacity onPress={() => setModalVisible(false)}>
+              <Text style={{ color: "white" }}>Checkout</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </>
+    );
+  };
+
   return (
     <>
-    <Model  animationType={"slide"}
-    visible={modalVisible}
-    transparent={true}
-    onRequestClose={setModalVisible(false)}
-    >
-{checkOutModelContent()}
-    </Model>
+   <Modal
+        animationType="slide"
+        visible={modalVisible}
+        transparent={true}
+        onRequestClose={() => setModalVisible(false)}
+      >
+        {checkoutModalContent()}
+      </Modal>
       {total ? (
         <View
-        style={{
+          style={{
             flex: 1,
             alignItems: "center",
             justifyContent: "center",
             flexDirection: "row",
             position: "absolute",
             bottom: 20,
-            zIndex: 999,}}
+            zIndex: 999,
+          }}
         >
           <View
             style={{
-                flexDirection: "row",
-                justifyContent: "center",
-                width: "100%",
-              }}
-            >
+              flexDirection: "row",
+              justifyContent: "center",
+              width: "100%",
+            }}
+          >
             <TouchableOpacity
-               style={{
+              style={{
                 marginTop: 20,
                 backgroundColor: "black",
                 flexDirection: "row",
@@ -59,12 +85,17 @@ export default function ViewCart() {
                 borderRadius: 30,
                 width: 300,
                 position: "relative",
+                
               }}
+              onPress={()=>setModalVisible(true)}
             >
               <Text style={{ color: "white", fontSize: 20, marginRight: 30 }}>
-              View Cart
+                View Cart
               </Text>
-              <Text style={{ color: "white", fontSize: 20 }}>  {parseCurr(total)}</Text>
+              <Text style={{ color: "white", fontSize: 20 }}>
+                {" "}
+                {parseCurr(total)}
+              </Text>
             </TouchableOpacity>
           </View>
         </View>
