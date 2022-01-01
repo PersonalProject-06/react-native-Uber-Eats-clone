@@ -36,4 +36,37 @@ export const foods = [
     image:
       "https://www.ladybehindthecurtain.com/wp-content/uploads/2019/10/Chilaquiles-Lady-Behind-The-Curtain-1.png",
   },
+    {
+      
+    title: "Lsagna",
+    description: "With Butter lecture, tomato and sauce bechamel ",
+    price: "$13.5",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1qnIxgKkuQd14m11HCRE_Def6fA3-dR7Lg&usqp=CAU",
+  },
+  
+    {
+      
+    title: "Lasagn",
+    description: "With Butter lecture, tomato and sauce bechamel ",
+    price: "$13.5",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1qnIxgKkuQd14m11HCRE_Def6fA3-dR7Lg&usqp=CAU",
+  },
+  {
+      
+    title: "asagn",
+    description: "With Butter lecture, tomato and sauce bechamel ",
+    price: "$13.5",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1qnIxgKkuQd14m11HCRE_Def6fA3-dR7Lg&usqp=CAU",
+  },
+  {
+      
+    title: "asagdazdn",
+    description: "With Butter lecture, tomato and sauce bechamel ",
+    price: "$13.5",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1qnIxgKkuQd14m11HCRE_Def6fA3-dR7Lg&usqp=CAU",
+  },
 ];

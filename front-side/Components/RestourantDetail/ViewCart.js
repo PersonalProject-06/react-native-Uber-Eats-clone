@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, TouchableOpacity, Modal, StyleSheet } from "react-native";
+import { View, Text, TouchableOpacity, Modal, StyleSheet, ScrollView } from "react-native";
 import { useSelector } from "react-redux";
 import OrderItem from "./OrderItem";
 
@@ -55,12 +55,15 @@ export default function ViewCart() {
   const checkoutModalContent = () => {
     return (
       <>
+
         <View style={styles.modalContainer}>
           <View style={styles.modalCheckoutContainer}>
+      <ScrollView showsVerticalScrollIndicator={false}>
             <Text style={styles.restaurantName}>{restaurantName}</Text>
             {items.map((e,i)=>{
                 return <OrderItem key={i} item={e}/>
             })}
+            </ScrollView>
           </View>
         </View>
       </>
@@ -69,15 +72,18 @@ export default function ViewCart() {
 
   return (
     <>
+  
+
       <Modal
      
-        animationType="slide"
-        visible={modalVisible}
-        transparent={true}
-        onRequestClose={() => setModalVisible(false)}
-      >
+     animationType="slide"
+     visible={modalVisible}
+     transparent={true}
+     onRequestClose={() => setModalVisible(false)}
+     >
         {checkoutModalContent()}
       </Modal>
+        
       {total ? (
         <View
           style={{
