@@ -23,7 +23,8 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function MenuItems({ restaurantName }) {
+export default function MenuItems({ restaurantName ,restaurantData}) {
+    console.log(restaurantData,"azddza");
   let dispatch = useDispatch();
 
   const cartItems = useSelector(
