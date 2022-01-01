@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { View, Text, TouchableOpacity, Modal, StyleSheet } from "react-native";
 import { useSelector } from "react-redux";
+import OrderItem from "./OrderItem";
 
 export default function ViewCart() {
   const [modalVisible, setModalVisible] = useState(false);
@@ -16,30 +17,50 @@ export default function ViewCart() {
     Platform.OS === "android"
       ? "$" + total.toFixed(2)
       : total.toLocaleString("en-US", { style: "currency", currency: "USD" });
+  const styles = StyleSheet.create({
+    modalContainer: {
+      flex: 1,
+      
+      justifyContent: "flex-end",
+      backgroundColor: "rgba(0,0,0,0.7)",
+    },
 
+    modalCheckoutContainer: {
+      backgroundColor: "white",
+      padding: 16,
+      height: 500,
+      borderWidth: 1,
+    },
+
+    restaurantName: {
+      textAlign: "center",
+      fontWeight: "600",
+      fontSize: 18,
+      marginBottom: 10,
+    },
+
+    subtotalContainer: {
+      flexDirection: "row",
+      justifyContent: "space-between",
+      marginTop: 15,
+    },
+
+    subtotalText: {
+      textAlign: "left",
+      fontWeight: "600",
+      fontSize: 15,
+      marginBottom: 10,
+    },
+  });
   const checkoutModalContent = () => {
     return (
       <>
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center",
-            marginTop: 30,
-          }}
-        >
-          <View
-            style={{
-              backgroundColor: "black",
-              padding: 10,
-              borderRadius: 30,
-              width: 150,
-              alignItems: "center",
-            }}
-          >
-            <TouchableOpacity onPress={() => setModalVisible(false)}>
-              <Text style={{ color: "white" }}>Checkout</Text>
-            </TouchableOpacity>
+        <View style={styles.modalContainer}>
+          <View style={styles.modalCheckoutContainer}>
+            <Text style={styles.restaurantName}>{restaurantName}</Text>
+            {items.map((e,i)=>{
+                return <OrderItem key={i} item={e}/>
+            })}
           </View>
         </View>
       </>
@@ -48,7 +69,8 @@ export default function ViewCart() {
 
   return (
     <>
-   <Modal
+      <Modal
+     
         animationType="slide"
         visible={modalVisible}
         transparent={true}
@@ -85,9 +107,8 @@ export default function ViewCart() {
                 borderRadius: 30,
                 width: 300,
                 position: "relative",
-                
               }}
-              onPress={()=>setModalVisible(true)}
+              onPress={() => setModalVisible(true)}
             >
               <Text style={{ color: "white", fontSize: 20, marginRight: 30 }}>
                 View Cart
