@@ -7,10 +7,7 @@ export default function ViewCart() {
   const total = items
     .map((item) => Number(item.price.replace("$", "")))
     .reduce((prev, curr) => prev + curr, 0);
-  const totalUSD = total.toLocaleString("en", {
-    style: "currency",
-    currency: "USD",
-  });
+  const totalUSD = total.toLocaleString("en-US", {style:"currency", currency:"USD"});
   return (
     <>
       {total ? (
@@ -46,7 +43,7 @@ export default function ViewCart() {
               <Text style={{ color: "white", fontSize: 20, marginRight: 30 }}>
               View Cart
               </Text>
-              <Text style={{ color: "white", fontSize: 20 }}>  ${totalUSD}</Text>
+              <Text style={{ color: "white", fontSize: 20 }}>  {totalUSD}</Text>
             </TouchableOpacity>
           </View>
         </View>
