@@ -1,5 +1,5 @@
-import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import React,{useState} from "react";
+import { View, Text, TouchableOpacity,Model } from "react-native";
 import { useSelector } from "react-redux";
 
 export default function ViewCart() {
@@ -7,7 +7,11 @@ export default function ViewCart() {
   const total = items
     .map((item) => Number(item.price.replace("$", "")))
     .reduce((prev, curr) => prev + curr, 0);
-  const totalUSD = total.toLocaleString("en-US", {style:"currency", currency:"USD"});
+
+  const parseCurr = (total) =>
+   Platform.OS === 'android'  
+      ?  '$' + total.toFixed(2)  
+      :  total.toLocaleString('en-US', { style: 'currency', currency:'USD' });
   return (
     <>
       {total ? (
@@ -43,7 +47,7 @@ export default function ViewCart() {
               <Text style={{ color: "white", fontSize: 20, marginRight: 30 }}>
               View Cart
               </Text>
-              <Text style={{ color: "white", fontSize: 20 }}>  {totalUSD}</Text>
+              <Text style={{ color: "white", fontSize: 20 }}>  {parseCurr(total)}</Text>
             </TouchableOpacity>
           </View>
         </View>
