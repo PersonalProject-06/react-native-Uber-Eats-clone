@@ -3,7 +3,12 @@ import { View, Text, TouchableOpacity,Model } from "react-native";
 import { useSelector } from "react-redux";
 
 export default function ViewCart() {
-  const items = useSelector((state) => state.cartReducer.selectedItems.items);
+   
+  const [modalVisible, setModalVisible] = useState(false)
+  const { items, restaurantName } = useSelector(
+    (state) => state.cartReducer.selectedItems
+  );
+
   const total = items
     .map((item) => Number(item.price.replace("$", "")))
     .reduce((prev, curr) => prev + curr, 0);
@@ -12,8 +17,20 @@ export default function ViewCart() {
    Platform.OS === 'android'  
       ?  '$' + total.toFixed(2)  
       :  total.toLocaleString('en-US', { style: 'currency', currency:'USD' });
+      const checkOutModelContent=()=>{
+          return (
+              <Text>ChecOut</Text>
+          )
+      }
   return (
     <>
+    <Model  animationType={"slide"}
+    visible={modalVisible}
+    transparent={true}
+    onRequestClose={setModalVisible(false)}
+    >
+{checkOutModelContent()}
+    </Model>
       {total ? (
         <View
         style={{

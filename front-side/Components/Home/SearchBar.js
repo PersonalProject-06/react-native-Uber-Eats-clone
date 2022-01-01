@@ -4,7 +4,7 @@ import { View, Text } from "react-native";
 import { GooglePlacesAutocomplete } from "react-native-google-places-autocomplete";
 import { AntDesign, Ionicons } from "@expo/vector-icons";
 export default function SearchBar({ setCity }) {
-  
+ 
   return (
     <View style={{ marginTop: 15, flexDirection: "row" }}>
       <GooglePlacesAutocomplete

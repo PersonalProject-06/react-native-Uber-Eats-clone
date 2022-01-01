@@ -19,7 +19,7 @@ export default function RestaurantItem({ navigation, restaurantData }) {
               reviews: e.review_count,
               rating: e.rating,
               categories: e.categories,
-              restaurantData
+            
             })
           }
         >
