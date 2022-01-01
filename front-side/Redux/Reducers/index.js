@@ -4,7 +4,8 @@ import cartReducer from './CartReducer'
 
 
 let reducers =combineReducers({
-    cartReducer:cartReducer
+    cartReducer:cartReducer,
+    
 })
 
 

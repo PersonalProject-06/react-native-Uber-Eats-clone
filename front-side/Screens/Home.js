@@ -17,8 +17,8 @@ export default function Home({navigation}) {
   const [activeTab, setActiveTab] = useState("Delivery");
 
   useEffect(() => {
-    getRestaurantsFromYelp(city, setRestaurantData ,activeTab);
-    }, [city, activeTab]);
+  }, [city, activeTab]);
+  getRestaurantsFromYelp(city, setRestaurantData ,activeTab);
 
   return (
     <SafeAreaView style={{ backgroundColor: "#eee", flex: 1 }}>
