@@ -9,8 +9,9 @@ import {
 } from "react-native";
 import { useSelector } from "react-redux";
 
-import firebase from "../../firbase"
+import firebase from "../../firbase";
 import OrderItem from "./OrderItem";
+import LottieView from "lottie-react-native";
 /// start style ///
 const styles = StyleSheet.create({
   modalContainer: {
@@ -48,8 +49,9 @@ const styles = StyleSheet.create({
   },
 });
 ///end style
-export default function ViewCart({navigation}) {
+export default function ViewCart({ navigation }) {
   const [modalVisible, setModalVisible] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { items, restaurantName } = useSelector(
     (state) => state.cartReducer.selectedItems
   );
@@ -62,10 +64,10 @@ export default function ViewCart({navigation}) {
     Platform.OS === "android"
       ? "$" + total.toFixed(2)
       : total.toLocaleString("en-US", { style: "currency", currency: "USD" });
-//start Modal
+  //start Modal
 
-const addOrderToFireBase = () => {
-  
+  const addOrderToFireBase = () => {
+      setLoading(true)
     const db = firebase.firestore();
     db.collection("orders")
       .add({
@@ -73,11 +75,15 @@ const addOrderToFireBase = () => {
         restaurantName: restaurantName,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
       })
-      navigation.navigate("orderCompleted",{
-          restaurantName,
-          total: total ? parseCurr(total) : ""
-      })
-      
+      .then(() => {
+        setTimeout(() => {
+          navigation.navigate("orderCompleted", {
+            restaurantName,
+            total: total ? parseCurr(total) : "",
+          });
+          setModalVisible(false);
+        }, 1000);
+      });
   };
 
   const checkoutModalContent = () => {
@@ -130,7 +136,7 @@ const addOrderToFireBase = () => {
       </>
     );
   };
-/// end Modal //
+  /// end Modal //
   return (
     <>
       <Modal
@@ -182,6 +188,28 @@ const addOrderToFireBase = () => {
               </Text>
             </TouchableOpacity>
           </View>
+        </View>
+      ) : (
+        <></>
+      )}
+      {loading ? (
+        <View
+          style={{
+            backgroundColor: "black",
+            position: "absolute",
+            opacity: 0.6,
+            justifyContent: "center",
+            alignItems: "center",
+            height: "100%",
+            width: "100%",
+          }}
+        >
+          <LottieView
+            style={{ height: 200 }}
+            source={require("../../assets/animations/scanner.json")}
+            autoPlay
+            speed={3}
+          />
         </View>
       ) : (
         <></>
