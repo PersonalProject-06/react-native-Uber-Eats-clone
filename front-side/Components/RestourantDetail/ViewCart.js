@@ -48,7 +48,7 @@ const styles = StyleSheet.create({
   },
 });
 ///end style
-export default function ViewCart() {
+export default function ViewCart({navigation}) {
   const [modalVisible, setModalVisible] = useState(false);
   const { items, restaurantName } = useSelector(
     (state) => state.cartReducer.selectedItems
@@ -72,6 +72,10 @@ const addOrderToFireBase = () => {
         items: items,
         restaurantName: restaurantName,
         createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      })
+      navigation.navigate("orderCompleted",{
+          restaurantName,
+          total: total ? parseCurr(total) : ""
       })
       
   };
