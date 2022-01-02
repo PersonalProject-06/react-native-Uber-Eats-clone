@@ -54,7 +54,7 @@ export default function OrderCompleted({route}) {
                 fontSize:20,
                 fontWeight:"bold"
             }}>Your order at {route.params.restaurantName} has been placed for {route.params.total} </Text>
-            <ScrollView>
+            <ScrollView showsVerticalScrollIndicator={false}>
 
             <MenuItems
             foods={lastOrder.items}
