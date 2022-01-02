@@ -5,6 +5,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import LottieView from "lottie-react-native";
 import MenuItems from '../Components/RestourantDetail/MenuItems';
 import firebase from "../firbase";
+import { ScrollView } from 'react-native-gesture-handler';
 export default function OrderCompleted({route}) {
     const [lastOrder, setLastOrder] = useState({
         items: [
@@ -35,27 +36,40 @@ export default function OrderCompleted({route}) {
         <SafeAreaView style={{
             backgroundColor:"white",flex:1
         }}>
+            <View style={{
+                margin:15,
+                alignItems:"center",
+                height:"100%"
+            }}>
+
   <LottieView
           style={{ height: 100, alignSelf: "center", marginBottom: 30 }}
           source={require("../assets/animations/check-mark.json")}
           autoPlay
           speed={0.5}
           loop={false}
-        />
+          />
         
-            <Text>Your order at {route.params.restaurantName} has been placed for {route.params.total} </Text>
+            <Text style={{
+                fontSize:20,
+                fontWeight:"bold"
+            }}>Your order at {route.params.restaurantName} has been placed for {route.params.total} </Text>
+            <ScrollView>
+
             <MenuItems
             foods={lastOrder.items}
             hideCheckbox={true}
             marginLeft={10}
-          />
+            />
             <LottieView
           style={{ height: 100, alignSelf: "center", marginBottom: 30 }}
           source={require("../assets/animations/cooking.json")}
           autoPlay
           speed={0.5}
-          loop={false}
-        />
+       
+          />
+          </ScrollView>
+          </View>
         </SafeAreaView>
     )
 }
