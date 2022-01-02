@@ -23,7 +23,8 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/desserts.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package": "com.firas_debich.UberEats"
     },
     "web": {
       "favicon": "./assets/images/bg1.jpg"
