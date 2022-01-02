@@ -16,9 +16,9 @@ export default function Home({navigation}) {
   const [city, setCity] = useState("San Francisco");
   const [activeTab, setActiveTab] = useState("Delivery");
 
-  useEffect(() => {
-  }, [city, activeTab]);
-  getRestaurantsFromYelp(city, setRestaurantData ,activeTab);
+  //useEffect(() => {
+   // getRestaurantsFromYelp(city, setRestaurantData ,activeTab);
+ // }, [city, activeTab]);
 
   return (
     <SafeAreaView style={{ backgroundColor: "#eee", flex: 1 }}>

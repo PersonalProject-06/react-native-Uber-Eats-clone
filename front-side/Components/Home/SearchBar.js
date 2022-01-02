@@ -11,7 +11,7 @@ export default function SearchBar({ setCity }) {
         query={{ key: KEY }}
         placeholder="Search"
         onPress={(data, detail = null) => {
-          console.log(data.description);
+       
           const city = data.description.split(",")[0];
           setCity(city);
         }}

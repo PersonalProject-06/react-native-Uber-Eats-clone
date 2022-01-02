@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, Image, ScrollView } from "react-native";
 import { Divider } from "react-native-elements";
 import FoodInfo from "./SubComponentMenuItems/FoodInfo";
 import FoodImage from "./SubComponentMenuItems/FoodImage";
-import { foods } from "./SubComponentMenuItems/fakeData";
+
 import BouncyCheckbox from "react-native-bouncy-checkbox";
 import { useDispatch, useSelector } from "react-redux";
 import { addToCard } from "../../Redux/Actions/cartAction";
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default function MenuItems({ restaurantName }) {
+export default function MenuItems({ restaurantName,hideCheckbox,marginLeft,foods }) {
   let dispatch = useDispatch();
 
   const cartItems = useSelector(
@@ -37,14 +37,15 @@ export default function MenuItems({ restaurantName }) {
       {foods.map((food, index) => (
         <View key={index}>
           <View style={styles.menuItemStyle}>
-            <BouncyCheckbox
+
+            {hideCheckbox?(<></>):<BouncyCheckbox
              isChecked={isFoodInCart(food, cartItems)}
               iconStyle={{ borderRadius: 0, borderColor: "grey" }}
               fillColor="green"
               onPress={(checkboxValue) => selectItem(food, checkboxValue)}
-            />
+            />}
             <FoodInfo food={food} />
-            <FoodImage food={food} marginLeft={0} />
+            <FoodImage food={food} marginLeft={marginLeft?marginLeft:0} />
           </View>
           <Divider
             width={0.5}
