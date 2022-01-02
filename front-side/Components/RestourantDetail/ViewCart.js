@@ -8,6 +8,8 @@ import {
   ScrollView,
 } from "react-native";
 import { useSelector } from "react-redux";
+
+import firebase from "../../firbase"
 import OrderItem from "./OrderItem";
 /// start style ///
 const styles = StyleSheet.create({
@@ -61,6 +63,19 @@ export default function ViewCart() {
       ? "$" + total.toFixed(2)
       : total.toLocaleString("en-US", { style: "currency", currency: "USD" });
 //start Modal
+
+const addOrderToFireBase = () => {
+  
+    const db = firebase.firestore();
+    db.collection("orders")
+      .add({
+        items: items,
+        restaurantName: restaurantName,
+        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+      })
+      
+  };
+
   const checkoutModalContent = () => {
     return (
       <>
@@ -86,7 +101,10 @@ export default function ViewCart() {
                     alignItems: "center",
                     position: "relative",
                   }}
-                  onPress={() => setModalVisible(false)}
+                  onPress={() => {
+                    addOrderToFireBase();
+                    setModalVisible(false);
+                  }}
                 >
                   <Text style={{ color: "white", fontSize: 20 }}>Checkout</Text>
                   <Text
