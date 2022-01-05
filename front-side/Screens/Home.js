@@ -42,9 +42,9 @@ export default function Home({ navigation }) {
         :
         <LottieView
           style={{  flex:1,justifyContent:"center",alignItems:"center" }}
-          source={require("../assets/animations/scanner.json")}
+          source={require("../assets/animations/78259-loading.json")}
           autoPlay
-          speed={3}
+          speed={1}
         />
       }
 
