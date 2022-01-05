@@ -8,30 +8,47 @@ import RestaurantItem from "../Components/Home/RestaurantItem";
 import { Divider } from "react-native-elements";
 import BottomTabs from "../Components/Home/BottomTabs";
 import { getRestaurantsFromYelp } from "./Api/FetchData";
-import { localRestourant } from '../Components/Home/RestaurantItems/FakeData/RestaurantItemsFakeData';
 
-export default function Home({navigation}) {
-
-  const [restaurantData, setRestaurantData] = useState(localRestourant);
+import LottieView from "lottie-react-native";
+export default function Home({ navigation }) {
+  const [restaurantData, setRestaurantData] = useState(null);
   const [city, setCity] = useState("San Francisco");
   const [activeTab, setActiveTab] = useState("Delivery");
 
-  //useEffect(() => {
-   // getRestaurantsFromYelp(city, setRestaurantData ,activeTab);
- // }, [city, activeTab]);
+  useEffect(() => {
+    getRestaurantsFromYelp(city, setRestaurantData, activeTab);
+  }, [city, activeTab]);
 
   return (
-    <SafeAreaView style={{ backgroundColor: "#eee", flex: 1 }}>
-      <View style={{ backgroundColor: "white", padding: 15 }}>
-        <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} />
-        <SearchBar setCity={setCity} />
-      </View>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <Categories />
-        <RestaurantItem restaurantData={restaurantData}  navigation={navigation}/>
-      </ScrollView>
-      <Divider width={1} />
-      <BottomTabs />
-    </SafeAreaView>
+    <>
+
+      {restaurantData  ?
+
+        <SafeAreaView style={{ backgroundColor: "#eee", flex: 1 }}>
+          <View style={{ backgroundColor: "white", padding: 15 }}>
+            <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} />
+            <SearchBar setCity={setCity} />
+          </View>
+          <ScrollView showsVerticalScrollIndicator={false}>
+            <Categories />
+            <RestaurantItem
+              restaurantData={restaurantData}
+              navigation={navigation}
+            />
+          </ScrollView>
+          <Divider width={1} />
+          <BottomTabs />
+        </SafeAreaView>
+        :
+        <LottieView
+          style={{  flex:1,justifyContent:"center",alignItems:"center" }}
+          source={require("../assets/animations/78259-loading.json")}
+          autoPlay
+          speed={1}
+        />
+      }
+
+
+    </>
   );
 }

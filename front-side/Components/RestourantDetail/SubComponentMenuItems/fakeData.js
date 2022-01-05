@@ -1,72 +1,48 @@
+import Pizza from "../../../assets/images/images.jpeg";
+import ReubenPizza from "../../../assets/images/bg5.jpg";
+import SupremePizza from "../../../assets/images/download.jpeg";
+import AllMeatsPizza from "../../../assets/images/download1.jpeg"
+import FlatBreadPizza from "../../../assets/images/flatbread-pizza.png"
+import PizzaBlanca from "../../../assets/images/red-oven-pizza-bakery.jpg"
 export const foods = [
   {
-      
-    title: "Lasagana",
-    description: "With Butter lecture, tomato and sauce bechamel ",
-    price: "$13.5",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1qnIxgKkuQd14m11HCRE_Def6fA3-dR7Lg&usqp=CAU",
+    title: "Pizza, Puttenesca",
+    description: "Olives, onions, capers, tomatoes",
+    price: "$13",
+    image: Pizza,
   },
   {
-    title: "Tandoori Chicken",
-    description: "Amazing Indian dish with tenederloin chicken of the sizzles",
-    price: "$19.20",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS6RduOMas2LUVcJdOJGPDR5UYsb3SHMEhNig&usqp=CAU",
+    title: "Reuben Pizza",
+    description:
+      "Thinly sliced corned beef, sauerkraut and russian dressing, topped with pizza cheese and finished with swiss cheese",
+    price: "$17.99",
+    image: ReubenPizza,
   },
   {
-    title: "Chilaquiles",
-    description: "Chilaquiles with cheese and sauce. A delicious mexican ",
-    price: "$14.50",
-    image:
-      "https://www.ladybehindthecurtain.com/wp-content/uploads/2019/10/Chilaquiles-Lady-Behind-The-Curtain-1.png",
-  },
-
-  {
-    title: "Chilaqules",
-    description: "Chilaquiles with cheese and sauce. A delicious mexican ",
-    price: "$14.50",
-    image:
-      "https://www.ladybehindthecurtain.com/wp-content/uploads/2019/10/Chilaquiles-Lady-Behind-The-Curtain-1.png",
+    title: "Supreme Pizza",
+    description:
+      "Pepperoni, Canadian bacon, beef, sausage, mushrooms, onions, green peppers, red bell peppers, black olives, green olives and fresh tomatoes.",
+    price: "$6.99",
+    image: SupremePizza,
   },
   {
-    title: "Chilaquils",
-    description: "Chilaquiles with cheese and sauce. A delicious mexican ",
-    price: "$14.50",
-    image:
-      "https://www.ladybehindthecurtain.com/wp-content/uploads/2019/10/Chilaquiles-Lady-Behind-The-Curtain-1.png",
-  },
-    {
-      
-    title: "Lsagna",
-    description: "With Butter lecture, tomato and sauce bechamel ",
-    price: "$13.5",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1qnIxgKkuQd14m11HCRE_Def6fA3-dR7Lg&usqp=CAU",
-  },
-  
-    {
-      
-    title: "Lasagn",
-    description: "With Butter lecture, tomato and sauce bechamel ",
-    price: "$13.5",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1qnIxgKkuQd14m11HCRE_Def6fA3-dR7Lg&usqp=CAU",
+    title: "All Meats Pizza",
+    description:
+      "Pizza sauce, mozzarella cheese, pepperoni, Canadian bacon, beef and sausage.",
+    price: "$6.99",
+    image: AllMeatsPizza,
   },
   {
-      
-    title: "asagn",
-    description: "With Butter lecture, tomato and sauce bechamel ",
-    price: "$13.5",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1qnIxgKkuQd14m11HCRE_Def6fA3-dR7Lg&usqp=CAU",
+    title: "Flat Bread Pizza",
+    description: "House made marinara, mozzarella cheese.",
+    price: "$6",
+    image: FlatBreadPizza,
   },
   {
-      
-    title: "asagdazdn",
-    description: "With Butter lecture, tomato and sauce bechamel ",
-    price: "$13.5",
-    image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz1qnIxgKkuQd14m11HCRE_Def6fA3-dR7Lg&usqp=CAU",
+    title: "Pizza Blanca",
+    description:
+      "a saucelessampcomma double cheese pizza with a garlic accentampcomma served with tomatoes on a sesame seed crust",
+    price: "$6.49",
+    image:PizzaBlanca,
   },
 ];
