@@ -4,9 +4,9 @@
     "slug": "UberEats",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/images/bg3.jpg",
+    "icon": "./assets/icons/icons.png",
     "splash": {
-      "image": "./assets/images/coffee.png",
+      "image": "./assets/icons/splash1.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -21,13 +21,13 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/desserts.png",
+        "foregroundImage": "./assets/icons/splash1.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "com.firas_debich.UberEats"
     },
     "web": {
-      "favicon": "./assets/images/bg1.jpg"
+      "favicon": "./assets/icons/icons.png"
     }
   }
 }

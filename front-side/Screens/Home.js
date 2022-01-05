@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { View, ScrollView, ImageBackground } from "react-native";
+import { View, ScrollView } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Categories from "../Components/Home/Categories";
 import HeaderTabs from "../Components/Home/HeaderTabs/HeaderTabs";
@@ -21,7 +21,9 @@ export default function Home({ navigation }) {
 
   return (
     <>
-      {restaurantData ? (
+
+      {restaurantData  ?
+
         <SafeAreaView style={{ backgroundColor: "#eee", flex: 1 }}>
           <View style={{ backgroundColor: "white", padding: 15 }}>
             <HeaderTabs activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -37,32 +39,16 @@ export default function Home({ navigation }) {
           <Divider width={1} />
           <BottomTabs />
         </SafeAreaView>
-      ) : (
-        <ImageBackground
-          source={require("../assets/images/splash.png")}
-          resizeMode="cover"
-          style={{
-            flex: 1,
-            justifyContent: "center",
-          }}
-        >
-          <View
-            style={{
-              flex: 1,
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <LottieView
-              style={{ height: 200 }}
-              source={require("../assets/animations/scanner.json")}
-              autoPlay
-              speed={3}
-            />
-          </View>
-        </ImageBackground>
-      )}
+        :
+        <LottieView
+          style={{ height: 200 , flex:1,justifyContent:"center",alignItems:"center" }}
+          source={require("../assets/animations/scanner.json")}
+          autoPlay
+          speed={3}
+        />
+      }
+
+
     </>
   );
 }

@@ -4,6 +4,7 @@ import RestaurantInfo from "./RestaurantItems/RestaurantInfo";
 import RestaurantImage from "./RestaurantItems/RestaurantImage";
 
 export default function RestaurantItem({ navigation, restaurantData }) {
+
   return (
     <>
       {restaurantData.map((e, i) => (
