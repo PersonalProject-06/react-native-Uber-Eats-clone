@@ -2,7 +2,7 @@ import React from "react";
 import { View, Image } from "react-native";
 
 export default function FoodImage({ marginLeft,...props }) {
-  console.log(typeof props.food.image ,"image ");
+ 
   return (
     <View>
       <Image

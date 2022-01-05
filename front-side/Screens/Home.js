@@ -41,7 +41,7 @@ export default function Home({ navigation }) {
         </SafeAreaView>
         :
         <LottieView
-          style={{ height: 200 , flex:1,justifyContent:"center",alignItems:"center" }}
+          style={{  flex:1,justifyContent:"center",alignItems:"center" }}
           source={require("../assets/animations/scanner.json")}
           autoPlay
           speed={3}
